@@ -1,0 +1,27 @@
+# ------------------------------------------------------------------------------
+# Author: Wei-Chih Tu
+# Name: EvalSPModule.so
+# Function: This is a Python module used to evaluate ASA and BR for superpixels.
+# ------------------------------------------------------------------------------
+
+# Inputs are expected to be int labels and converted to python lists
+# For example, convert a numpy 2D map into a 1D python list:
+spLabel = cv2.imread('spLabel.png', -1)
+spList = spLabel.faltten().tolist()
+
+# ASA usage 1: compute ASA only
+asa = computeASA(spList, gtList, 0)
+
+# ASA usage 2: return ASA and a superpixel-wise leakage map
+# leakage error = sp_size - max_overlap_size
+asa, errorList = computeASA(spList, gtList, 1)
+errorMap = np.reshape(np.asarray(errorList), (h, w))
+
+# BR usage:
+# r is the tolerence and should be adjusted according to image scale.
+# Suggested settings:
+#    BSDS500, r = 1
+#    Cityscapes, r = 3
+br = computeBR(spList, gtList, r)
+
+
