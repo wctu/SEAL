@@ -7,7 +7,7 @@ IEEE Conference on Computer Vision and Pattern Recognition (CVPR), June 2018
 [Project](https://sites.google.com/site/wctu1009/cvpr18_superpixel) | [Paper](http://openaccess.thecvf.com/content_cvpr_2018/html/Tu_Learning_Superpixels_With_CVPR_2018_paper.html)
 
 ## Getting Started
-In this repository, we provide the test code and the model trained on the BSDS500 dataset using the ERS algorithm as the superpixel segmenter. We also provide the evaluation scripts used in our experiments.
+In this repository, we provide the test code and the model trained on the BSDS500 dataset using the [ERS algorithm](https://github.com/mingyuliutw/EntropyRateSuperpixel) as the superpixel segmenter. We also provide the evaluation scripts used in our experiments.
 
 ### Prerequisites
 * Hardware: PC with NVIDIA GPU. We have tested the code with GeForce GTX 1080Ti and TitanXP.
@@ -24,7 +24,8 @@ In the ```/data``` folder we sample some examples from the BSDS500 test set for 
 
 ### Testing
 Go to ```/test``` and run test.py
-The ERSModule.so is a Python interface of the [ERS algorithm](https://github.com/mingyuliutw/EntropyRateSuperpixel).
+The ```bsds500.pkl``` is the model trained on the BSDS500 dataset with the [ERS algorithm](https://github.com/mingyuliutw/EntropyRateSuperpixel).
+The ```ERSModule.so``` is a Python interface of the ERS algorithm.
 We modify the original ERS algorithm a bit so that it can take pixel affinities as input. See ```readme_ERS.pdf``` for more details.
 
 ### Evaluation
