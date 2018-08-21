@@ -1,5 +1,6 @@
 # Learning Superpixels with Segmentation-Aware Affinity Loss
-[Learning Superpixels with Segmentation-Aware Affinity Loss](https://sites.google.com/site/wctu1009/cvpr18_superpixel)
+[Learning Superpixels with Segmentation-Aware Affinity Loss](https://sites.google.com/site/wctu1009/cvpr18_superpixel) 
+
 Wei-Chih Tu, Ming-Yu Liu, Varun Jampani, Deqing Sun, Shao-Yi Chien, Ming-Hsuan Yang, and Jan Kautz
 IEEE Conference on Computer Vision and Pattern Recognition (CVPR), June 2018
 [Paper](http://openaccess.thecvf.com/content_cvpr_2018/html/Tu_Learning_Superpixels_With_CVPR_2018_paper.html)
@@ -15,13 +16,13 @@ We can read such png files using OpenCV imread() with extra -1 flag:
 img = cv2.imread('input.png', -1)
 ```
 In our experiments, we preprocess all the datasets so that the segmentation ground-truth maps are also in the same 16-bit png format.
-In the /data folder we sample some examples from the BSDS500 test set for reference.
+In the ```/data``` folder we sample some examples from the BSDS500 test set for reference.
 ### Testing
-Go to /test and run test.py
+Go to ```/test``` and run test.py
 The ERSModule.so is a Python interface of the [ERS algorithm](https://github.com/mingyuliutw/EntropyRateSuperpixel).
 We modify the original ERS algorithm a bit so that it can take pixel affinities as input. See readme_ERS.pdf for more details.
 ### Evaluation
-Go to /eval and there are two python scripts for evaluation. 
+Go to ```/eval``` and there are two python scripts for evaluation. 
 The core evaluation functions are written in C++. The file EvalSPModule.so is the Python interface of these functions.
 See readme_eval.pdf for more details.
 ## Bibtex
