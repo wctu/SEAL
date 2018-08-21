@@ -25,14 +25,14 @@ In the ```/data``` folder we sample some examples from the BSDS500 test set for 
 ### Testing
 Go to ```/test``` and run test.py
 The ERSModule.so is a Python interface of the [ERS algorithm](https://github.com/mingyuliutw/EntropyRateSuperpixel).
-We modify the original ERS algorithm a bit so that it can take pixel affinities as input. See readme_ERS.pdf for more details.
+We modify the original ERS algorithm a bit so that it can take pixel affinities as input. See ```readme_ERS.pdf``` for more details.
 
 ### Evaluation
 Go to ```/eval``` and there are two python scripts for evaluation. 
 To use the eval_par.py script, you will additionally need to install the ```joblib``` package to enable multi-threading.
 It is particularly helpful when evaluating a large dataset along with many number of superpixels.
 The core evaluation functions are written in C++. The file EvalSPModule.so is the Python interface of these functions.
-See readme_eval.pdf for more details.
+See ```readme_eval.pdf``` for more details.
 
 ## Bibtex
 If you find this repository useful in your research, please cite us:
