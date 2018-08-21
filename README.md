@@ -4,7 +4,7 @@
 Wei-Chih Tu, Ming-Yu Liu, Varun Jampani, Deqing Sun, Shao-Yi Chien, Ming-Hsuan Yang, and Jan Kautz
 IEEE Conference on Computer Vision and Pattern Recognition (CVPR), June 2018
 
-[Paper](http://openaccess.thecvf.com/content_cvpr_2018/html/Tu_Learning_Superpixels_With_CVPR_2018_paper.html)
+[Project](https://sites.google.com/site/wctu1009/cvpr18_superpixel) | [Paper](http://openaccess.thecvf.com/content_cvpr_2018/html/Tu_Learning_Superpixels_With_CVPR_2018_paper.html)
 
 ## Getting Started
 In this repository, we provide the test code and the model trained on the BSDS500 dataset using the ERS algorithm as the superpixel segmenter. We also provide the evaluation scripts used in our experiments.
@@ -29,6 +29,8 @@ We modify the original ERS algorithm a bit so that it can take pixel affinities 
 
 ### Evaluation
 Go to ```/eval``` and there are two python scripts for evaluation. 
+To use the eval_par.py script, you will additionally need to install the ```joblib``` package to enable multi-threading.
+It is particularly helpful when evaluating a large dataset along with many number of superpixels.
 The core evaluation functions are written in C++. The file EvalSPModule.so is the Python interface of these functions.
 See readme_eval.pdf for more details.
 
