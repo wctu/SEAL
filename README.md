@@ -32,7 +32,7 @@ We modify the original ERS algorithm a bit so that it can take pixel affinities 
 We provide codes for computing the ASA (Achievable Segmentation Accuracy) and the BR (Boundary Recall) scores for superpixel evaluation.
 Go to ```/eval``` and run one of the two python scripts for evaluation. 
 Make sure the input or output folder paths has been specified correctly in the python scripts.
-To use the ```eval_par.py script```, you will additionally need to install the ```joblib``` package to enable multi-threading.
+To use the ```eval_par.py``` script, you will additionally need to install the ```joblib``` package to enable multi-threading.
 It is particularly helpful when evaluating a large dataset along with many number of superpixels.
 The core evaluation functions are written in C++. The file ```EvalSPModule.so``` is the Python interface of these functions.
 See ```readme_eval.pdf``` for more details.
