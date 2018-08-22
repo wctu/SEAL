@@ -20,19 +20,21 @@ We can read such png files using OpenCV imread() with extra -1 flag:
 img = cv2.imread('input.png', -1)
 ```
 In our experiments, we preprocess all the datasets so that the segmentation ground-truth maps are also in the same 16-bit png format.
-In the ```/data``` folder we sample some examples from the BSDS500 test set for reference.
+In the ```/data``` folder we sample some images from the BSDS500 test set and provide their corresponding ground-truth maps in the 16-bit png format for reference.
 
 ### Testing
-Go to ```/test``` and run test.py
-The ```bsds500.pkl``` is the model trained on the BSDS500 dataset with the [ERS algorithm](https://github.com/mingyuliutw/EntropyRateSuperpixel).
+Go to ```/test``` and run ```test.py```.
+The file ```bsds500.pkl``` is the model trained on the BSDS500 dataset with the [ERS algorithm](https://github.com/mingyuliutw/EntropyRateSuperpixel).
 The ```ERSModule.so``` is a Python interface of the ERS algorithm.
 We modify the original ERS algorithm a bit so that it can take pixel affinities as input. See ```readme_ERS.pdf``` for more details.
 
 ### Evaluation
-Go to ```/eval``` and there are two python scripts for evaluation. 
-To use the eval_par.py script, you will additionally need to install the ```joblib``` package to enable multi-threading.
+We provide codes for computing the ASA (Achievable Segmentation Accuracy) and the BR (Boundary Recall) scores for superpixel evaluation.
+Go to ```/eval``` and run one of the two python scripts for evaluation. 
+Make sure the input or output folder paths has been specified correctly in the python scripts.
+To use the ```eval_par.py script```, you will additionally need to install the ```joblib``` package to enable multi-threading.
 It is particularly helpful when evaluating a large dataset along with many number of superpixels.
-The core evaluation functions are written in C++. The file EvalSPModule.so is the Python interface of these functions.
+The core evaluation functions are written in C++. The file ```EvalSPModule.so``` is the Python interface of these functions.
 See ```readme_eval.pdf``` for more details.
 
 ## Bibtex
