@@ -3,6 +3,10 @@
 #include <cstring>  // memset
 using namespace std;
 
+#if PY_MAJOR_VERSION >= 3
+long (*PyInt_AsLong)(PyObject *obj) = PyLong_AsLong;
+#endif
+
 static PyObject* computeASA(PyObject* self, PyObject* args) {
     PyObject* pListSP;      // input
     PyObject* pListGT;      // input
@@ -217,6 +221,22 @@ static PyMethodDef EvalSPMethods[] = {
     {NULL, NULL, 0, NULL}
 };
 
+#if PY_MAJOR_VERSION >= 3
+static struct PyModuleDef EvalSPModule = {
+    PyModuleDef_HEAD_INIT,
+    "EvalSPModule",
+    NULL,
+    -1,
+    EvalSPMethods
+};
+#endif
+
+#if PY_MAJOR_VERSION >= 3
+PyMODINIT_FUNC PyInit_EvalSPModule(void) {
+     return PyModule_Create(&EvalSPModule);
+}
+#else
 PyMODINIT_FUNC initEvalSPModule(void) {
     (void)Py_InitModule("EvalSPModule", EvalSPMethods);
 }
+#endif
