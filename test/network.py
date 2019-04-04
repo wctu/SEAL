@@ -37,7 +37,7 @@ class MyResBlock(nn.Module):
 class PixelAffinityNet(nn.Module):
     def __init__(self, nr_channel, conv1_size, use_canny=True):
         super(PixelAffinityNet, self).__init__()
-        pad_size = (conv1_size - 1) / 2
+        pad_size = int((conv1_size - 1) / 2)
         self.pad1 = nn.ReplicationPad2d((pad_size, pad_size, 0, 0))     # left, right, top, bottom
         self.conv1 = nn.Conv2d(3, nr_channel, kernel_size=(1, conv1_size), stride=1, padding=0, bias=True)
         self.in1 = nn.InstanceNorm2d(nr_channel, affine=False, track_running_stats=True)
