@@ -36,6 +36,7 @@ In the ```/data``` folder we sample some images from the BSDS500 test set and pr
 
 Go to ```/test``` and run ```test.py```.
 The file ```bsds500.pkl``` is the model trained on the BSDS500 dataset with the [ERS algorithm](https://github.com/mingyuliutw/EntropyRateSuperpixel).
+The file ```cityscapes.pkl``` is trained on Cityscapes, while we note that ```bsds500.pkl``` also generalizes well on Cityscapes.
 The ```ERSModule.so``` is a Python interface of the ERS algorithm.
 We modify the original ERS algorithm a bit so that it can take pixel affinities as input. See ```readme_ERS.pdf``` for more details.
 
